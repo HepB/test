@@ -1,4 +1,4 @@
-package ru.lyubimov.test;
+package ru.lyubimov.test.different;
 
 public class ThreadTest {
     public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package ru.lyubimov.test;
+package ru.lyubimov.test.different;
 
 import org.apache.commons.lang3.StringUtils;
 
