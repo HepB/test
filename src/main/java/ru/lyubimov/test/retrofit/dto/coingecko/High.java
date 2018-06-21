@@ -1,9 +1,9 @@
-package ru.lyubimov.test.retrofit.dto;
+package ru.lyubimov.test.retrofit.dto.coingecko;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MarketCap {
+public class High {
     @Expose
     @SerializedName("zar")
     private double zar;

@@ -1,9 +1,9 @@
-package ru.lyubimov.test.retrofit.dto;
+package ru.lyubimov.test.retrofit.dto.coingecko;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CurrentPrice {
+public class Low {
     @Expose
     @SerializedName("zar")
     private double zar;
