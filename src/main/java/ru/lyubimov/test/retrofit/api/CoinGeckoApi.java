@@ -11,6 +11,4 @@ public interface CoinGeckoApi {
 
     @GET("api/v3/coins/")
     Call<List<CoinGeckoDTO>> getCryptoCurrencies(@Query("per_page") Integer num, @Query("page") Integer page);
-
-
 }
