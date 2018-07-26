@@ -1,6 +1,6 @@
-package ru.lyubimov.test.kotlin.inaction.two_fundamentals
+package ru.lyubimov.test.kotlin.inaction.fundamentals
 
-import ru.lyubimov.test.kotlin.inaction.two_fundamentals.Color.*
+import ru.lyubimov.test.kotlin.inaction.fundamentals.Color.*
 
 enum class Color(val r: Int, val g : Int, val b : Int) {
     RED(255, 0, 0),

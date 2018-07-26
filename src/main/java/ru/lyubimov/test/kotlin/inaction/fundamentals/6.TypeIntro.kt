@@ -1,4 +1,4 @@
-package ru.lyubimov.test.kotlin.inaction.two_fundamentals
+package ru.lyubimov.test.kotlin.inaction.fundamentals
 
 //2.3.5 Автоматическое приведение типов
 interface Expr

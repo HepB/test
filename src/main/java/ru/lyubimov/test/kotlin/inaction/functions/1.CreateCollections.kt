@@ -1,6 +1,6 @@
-package ru.lyubimov.test.kotlin.inaction.three_fun
+package ru.lyubimov.test.kotlin.inaction.functions
 
-import ru.lyubimov.test.kotlin.inaction.three_fun.strings.joinToString
+import ru.lyubimov.test.kotlin.inaction.functions.strings.joinToString
 
 val set = hashSetOf(1, 7, 53)
 val list = arrayListOf(1, 7, 53)

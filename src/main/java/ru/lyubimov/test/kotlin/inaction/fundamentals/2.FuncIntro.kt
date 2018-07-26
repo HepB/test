@@ -1,4 +1,4 @@
-package ru.lyubimov.test.kotlin.inaction.two_fundamentals
+package ru.lyubimov.test.kotlin.inaction.fundamentals
 
 fun main(args: Array<String>) {
     print(max(21, 23))

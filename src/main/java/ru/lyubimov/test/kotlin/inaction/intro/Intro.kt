@@ -1,4 +1,4 @@
-package ru.lyubimov.test.kotlin.inaction.one_intro
+package ru.lyubimov.test.kotlin.inaction.intro
 
 //1.1 первое знакомство с Kotlin
 data class Person(val name :String, val age : Int? = null)

@@ -1,4 +1,4 @@
-package ru.lyubimov.test.kotlin.inaction.two_fundamentals
+package ru.lyubimov.test.kotlin.inaction.fundamentals
 
 import java.io.BufferedReader
 import java.io.StringReader

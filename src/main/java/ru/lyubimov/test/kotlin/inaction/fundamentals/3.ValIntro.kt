@@ -1,4 +1,4 @@
-package ru.lyubimov.test.kotlin.inaction.two_fundamentals
+package ru.lyubimov.test.kotlin.inaction.fundamentals
 
 //2.1.3 Переменные
 val question: String = "The Ultimate Question of Life, the Universe, and Everything"

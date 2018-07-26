@@ -1,5 +1,5 @@
 @file:JvmName("StringFunctions")
-package ru.lyubimov.test.kotlin.inaction.three_fun.strings
+package ru.lyubimov.test.kotlin.inaction.functions.strings
 
 fun <T> Collection<T>.joinToString(
         separator: String = ", ",

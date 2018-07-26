@@ -1,4 +1,4 @@
-package ru.lyubimov.test.kotlin.inaction.three_fun
+package ru.lyubimov.test.kotlin.inaction.functions
 
 //3.5
 fun parsePath(path : String) {
