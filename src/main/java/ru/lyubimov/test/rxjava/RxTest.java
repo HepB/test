@@ -1,6 +1,5 @@
 package ru.lyubimov.test.rxjava;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import io.reactivex.*;
 import io.reactivex.disposables.Disposable;
 import org.reactivestreams.Subscriber;
