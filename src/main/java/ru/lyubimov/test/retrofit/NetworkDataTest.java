@@ -35,7 +35,7 @@ public class NetworkDataTest {
             public void onResponse(Call<List<CoinGeckoDTO>> call, Response<List<CoinGeckoDTO>> response) {
                 List<CoinGeckoDTO> list = response.body();
                 System.out.println(logMessage + (list.size()));
-                System.out.println(list.get(0).getImage().getSmall());
+                System.out.println(list.size());
             }
             public void onFailure(Call<List<CoinGeckoDTO>> call, Throwable throwable) {
 
@@ -60,6 +60,7 @@ public class NetworkDataTest {
                 List<Result> list = response.body().getResult();
                 //System.out.println(response.body().getResult());
                 System.out.println(logMessage + (list.size()));
+                System.out.println(list.get(0).getPriceUsd());
             }
 
             @Override
