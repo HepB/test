@@ -49,3 +49,8 @@ fun printShippingLabel(person: Person) {
     }
 }
 
+//6.2.6
+fun fail(message: String): Nothing {
+    throw IllegalStateException(message)
+}
+
