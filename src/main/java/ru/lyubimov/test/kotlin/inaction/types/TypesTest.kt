@@ -10,8 +10,8 @@ data class Address(val streetAddress : String, val zipCode: Int,
 data class Company(val name : String, val address: Address?)
 
 class Person(val name : String, val company : Company?) {
-    override fun equals(o: Any?): Boolean {
-        val otherPerson = o as? Person ?: return false
+    override fun equals(other: Any?): Boolean {
+        val otherPerson = other as? Person ?: return false
         return otherPerson.name == name && otherPerson.company == company
     }
 
@@ -54,3 +54,10 @@ fun fail(message: String): Nothing {
     throw IllegalStateException(message)
 }
 
+//6.1.10
+fun<T> printHashCode(t: T) {
+    println(t?.hashCode())
+}
+fun<T: Any> printHashCodeWithoutNull(t : T) {
+    println(t.hashCode())
+}
