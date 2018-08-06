@@ -1,6 +1,7 @@
 package ru.lyubimov.test.kotlin.inaction.overloads
 
 import java.math.BigDecimal
+import java.time.LocalDate
 
 data class Point(val x: Int, val y: Int)
 data class MutablePoint(var x: Int, var y: Int)
@@ -47,6 +48,18 @@ operator fun MutablePoint.set(index: Int, value: Int) {
 operator fun Rectangle.contains(o: Point): Boolean = o.x in lowerLeft.x..upperRight.x && o.y in lowerLeft.y..upperRight.y
 
 operator fun BigDecimal.inc() = this + BigDecimal.ONE
+
+//7.3.4
+operator fun ClosedRange<LocalDate>.iterator() : Iterator<LocalDate> =
+        object : Iterator<LocalDate> {
+            var current = start
+            override fun hasNext(): Boolean =
+                    current <= endInclusive
+
+            override fun next(): LocalDate = current.apply {
+                current = plusDays(1)
+            }
+        }
 
 fun main(args: Array<String>) {
     val p1 = Point(2, 2)
