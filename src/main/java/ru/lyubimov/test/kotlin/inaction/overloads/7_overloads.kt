@@ -61,6 +61,12 @@ operator fun ClosedRange<LocalDate>.iterator() : Iterator<LocalDate> =
             }
         }
 
+fun printEntries(map: Map<String, String>) {
+    for((key, value) in map) {
+        println("$key -> $value")
+    }
+}
+
 fun main(args: Array<String>) {
     val p1 = Point(2, 2)
     var p2 = Point(20, 30)
@@ -84,4 +90,8 @@ fun main(args: Array<String>) {
     val rect = Rectangle(Point(1, 1), Point(4, 4))
     println(p1 in rect)
     println(p2 in rect)
+
+    val map = mapOf("Катя" to "Красоточка", "Саша" to "Огрообразие")
+    map.get("s")
+    printEntries(map)
 }
