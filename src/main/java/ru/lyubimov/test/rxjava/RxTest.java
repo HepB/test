@@ -5,6 +5,7 @@ import io.reactivex.disposables.Disposable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RxTest {
@@ -104,7 +105,5 @@ public class RxTest {
         Maybe<String> maybe = Maybe.just("e");
 
         Single<String> single = Single.just("e");
-
-
     }
 }
