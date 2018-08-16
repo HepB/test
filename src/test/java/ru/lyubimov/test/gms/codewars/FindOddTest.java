@@ -1,4 +1,4 @@
-package ru.lyubimov.test.codewars;
+package ru.lyubimov.test.gms.codewars;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

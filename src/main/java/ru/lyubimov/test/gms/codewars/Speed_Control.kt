@@ -1,6 +1,5 @@
-package ru.lyubimov.test.codewars
+package ru.lyubimov.test.gms.codewars
 
-import ru.lyubimov.test.kotlin.inaction.fundamentals.max
 import kotlin.math.roundToInt
 
 fun gpsMed(s: Int, x: DoubleArray): Int {

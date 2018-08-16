@@ -1,4 +1,4 @@
-package ru.lyubimov.test.codewars;
+package ru.lyubimov.test.gms.codewars;
 
 import java.util.HashMap;
 import java.util.Map;
