@@ -10,11 +10,11 @@ abstract class Beverage {
 
 class Espresso: Beverage() {
     override fun getDescription(): String = "Espresso"
-    override fun cost(): Double = (when(size) {
+    override fun cost(): Double = when(size) {
         Size.TAll -> 1.99
         Size.GRANDE -> 2.21
         Size.VENTI -> 2.45
-    })
+    }
 }
 
 class HouseBlend: Beverage() {
