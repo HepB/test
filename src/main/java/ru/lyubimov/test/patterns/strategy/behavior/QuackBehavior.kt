@@ -8,7 +8,6 @@ class MuteQuack: QuackBehavior{
     override fun quack() {
         println("There is no sound.")
     }
-
 }
 
 class Quack: QuackBehavior {
@@ -21,5 +20,4 @@ class Squeack: QuackBehavior {
     override fun quack() {
         println("Squeack")
     }
-
 }
