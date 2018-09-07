@@ -1,4 +1,4 @@
-package ru.lyubimov.test.rxjava;
+package ru.lyubimov.test.collection;
 
 import java.util.Arrays;
 import java.util.List;
