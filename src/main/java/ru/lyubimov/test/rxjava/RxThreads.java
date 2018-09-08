@@ -3,9 +3,6 @@ package ru.lyubimov.test.rxjava;
 import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.Executor;
 
 
 public class RxThreads {
