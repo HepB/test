@@ -8,18 +8,19 @@ public class StringTest {
     private static void testOne() {
         Date dateOne = new Date();
         for (int i = 0; i < 1000000; i++) {
-            s.replace("3", "");
+            String v = s.replace("3", "");
         }
         Date dateTwo = new Date();
         System.out.println(dateTwo.getTime() - dateOne.getTime());
     }
 
-    public static void main(String[] args) {
-        testOne();
+    private static void main(String[] args) {
+        //testOne();
         //testTwo();
+        formatTest();
     }
 
-    public static void  testTwo() {
+    private static void testTwo() {
         Date dateOne = new Date();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 1000000; i++) {
@@ -32,5 +33,10 @@ public class StringTest {
         }
         Date dateTwo = new Date();
         System.out.println(dateTwo.getTime() - dateOne.getTime());
+    }
+
+    private static void formatTest() {
+        long number = 1234422123213214232L;
+        System.out.println(String.format("%d", number));
     }
 }
