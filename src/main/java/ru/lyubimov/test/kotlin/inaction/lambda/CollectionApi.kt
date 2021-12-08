@@ -5,7 +5,7 @@ class Book(val title: String, val authors: List<String>)
 
 val personsTwo = arrayListOf<Person>()
 
-fun main(args: Array<String>) {
+fun main() {
     val people = listOf(
             Person("Vasya", 31),
             Person("Kolya", 21),
@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     println(people.map { it.name })
     println(personsTwo)
 
-    val maxAge = people.maxBy(Person::age)!!.age
+    val maxAge = people.maxByOrNull(Person::age)!!.age
     people.filter { it.age == maxAge }
 
     //5.2.2

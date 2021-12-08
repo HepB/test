@@ -10,7 +10,7 @@ fun maxRot(n: Long): Long {
             variants.add(joinToString(separator = "", prefix = "", postfix = "").toLong())
         }
     }
-    return variants.max() ?: n
+    return variants.maxOrNull() ?: n
 }
 
 fun MutableList<Char>.moveLeft(): MutableList<Char> {
@@ -19,7 +19,7 @@ fun MutableList<Char>.moveLeft(): MutableList<Char> {
     return this
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val char = mutableListOf('a', 'b', 'c', 'd')
     println(char.moveLeft().moveLeft().moveLeft().moveLeft())
     println(char)
