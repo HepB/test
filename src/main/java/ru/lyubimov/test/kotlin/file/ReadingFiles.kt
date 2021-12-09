@@ -31,4 +31,6 @@ fun wordsInLine(line: String) = line.trim().split(Regex("\\s+"))
 fun main() {
     println(longestLineInTextFile("C:\\java\\test\\src\\main\\java\\ru\\lyubimov\\test\\kotlin\\file\\words_sequence.txt")?.length)
     println(wordsInLine(getLinesFromFile("C:\\java\\test\\src\\main\\java\\ru\\lyubimov\\test\\kotlin\\file\\text.txt")!![0]).size)
+    val lines = getLinesFromFile("C:\\java\\test\\src\\main\\java\\ru\\lyubimov\\test\\kotlin\\file\\words_with_numbers.txt")!!
+    println(lines.mapNotNull { it.toIntOrNull() }.count())
 }

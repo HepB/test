@@ -5,6 +5,6 @@ fun main(args: Array<String>) {
 }
 
 fun containsValue(value: String): Boolean {
-    return  Mustache.values().any{ it.name.equals(value, true) }
+    return  Mustache.values().any { it.name.equals(value, true) }
 }
 
