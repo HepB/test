@@ -45,6 +45,8 @@ fun main() {
 
     println(parseCardNumber("1234 5678 9012 3456"))
 
+    longestSequence()
+
 }
 
 fun findNearestCoordinates(
@@ -76,6 +78,52 @@ fun checkNumber(cardNumber: String) {
 // for valid cardNumber only
 fun prepareNumber(cardNumber: String): Long {
     return cardNumber.filter { it != ' ' }.toLong()
+}
+
+fun longestSequence() {
+    // write your code here
+    //val count = readLine()!!.toInt()
+
+    val input = listOf(1, 2, 4, 1, 2, 2, 5, 7, 4, 3)
+
+    var currentSequence = 0
+    var longestSequence = 0
+    var prevNumber: Int? = null
+
+    for (currentNumber in input) {
+        //val currentNumber = readLine()!!.toInt()
+        when {
+            prevNumber == null -> {
+                prevNumber = currentNumber
+                currentSequence++
+                longestSequence++
+                continue
+            }
+            currentNumber >= prevNumber -> {
+                currentSequence++
+            }
+            longestSequence >= currentSequence -> {
+                currentSequence = 1
+            }
+            else -> {
+                longestSequence = currentSequence
+                currentSequence = 1
+            }
+        }
+        prevNumber = currentNumber
+    }
+
+    val result = if (currentSequence > longestSequence) currentSequence else longestSequence
+    println(result)
+}
+
+fun temp() {
+    val size = readLine()!!.toInt()
+    val numbers = List(size) { readLine()!!.toInt() }
+    val currentNums = readLine()!!.split(" ").map { it.toInt() }
+
+    val message = if (numbers.containsAll(currentNums)) "YES" else "NO"
+    println(message)
 }
 
 data class Distance2D(
