@@ -1,16 +1,13 @@
 package ru.lyubimov.test.temp
 
+import java.util.*
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-fun fizzbuzz(from: Int, to: Int, transformation: (Int) -> String) {
-    for (number in from..to) {
-        println(transformation(number))
-    }
-}
+const val TYPE = "png"
 
 fun main() {
-    fizzbuzz(1, 100) { number ->
+    /*fizzbuzz(1, 100) { number ->
         if (number % 15 == 0) {
             return@fizzbuzz "fizzbuzz"
         }
@@ -47,6 +44,15 @@ fun main() {
 
     longestSequence()
 
+    println(checkFilePath("test/small.png"))
+    println(checkFilePath("sd f.png"))*/
+    temp()
+}
+
+fun fizzbuzz(from: Int, to: Int, transformation: (Int) -> String) {
+    for (number in from..to) {
+        println(transformation(number))
+    }
 }
 
 fun findNearestCoordinates(
@@ -118,12 +124,32 @@ fun longestSequence() {
 }
 
 fun temp() {
-    val size = readLine()!!.toInt()
-    val numbers = List(size) { readLine()!!.toInt() }
-    val currentNums = readLine()!!.split(" ").map { it.toInt() }
+    val count = readLine()!!.toInt()
+    val numbers = List(count) { readLine()!!.toInt() }
+    val (at, bt) = readLine()!!.split(" ")
+    val a = at.toInt()
+    val b = bt.toInt()
 
-    val message = if (numbers.containsAll(currentNums)) "YES" else "NO"
-    println(message)
+    var isOccurNextEachOther = false
+
+    for (i in numbers.indices) {
+        val number = numbers[i]
+        val haveNextElement = numbers.size - i > 1
+
+        when {
+            number == a && haveNextElement -> isOccurNextEachOther = b == numbers[i + 1]
+            number == b && haveNextElement -> isOccurNextEachOther = a == numbers[i + 1]
+        }
+        if (isOccurNextEachOther) break
+    }
+
+    val result = if (isOccurNextEachOther) "YES" else "NO"
+    println(result)
+}
+
+fun checkFilePath(path: String): String? {
+    val regex = Regex(".+[.]$TYPE$")
+    return if (path.matches(regex)) null else "Enter correct file path"
 }
 
 data class Distance2D(

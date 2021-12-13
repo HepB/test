@@ -1,4 +1,4 @@
-package ru.lyubimov.test.graphic
+package ru.lyubimov.test.graphic.one
 
 import java.awt.Color
 import java.awt.image.BufferedImage
