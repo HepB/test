@@ -8,7 +8,7 @@ fun String.eqaulChars(another: String) : Boolean {
     return first.containsAll(second) && first.size == second.size
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val a = arrayListOf("asd", "dsa", "qsq", "sad", "af2")
     println(containAllRoots("asd", a))
 }

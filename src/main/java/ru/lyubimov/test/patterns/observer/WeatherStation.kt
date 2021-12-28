@@ -1,6 +1,6 @@
 package ru.lyubimov.test.patterns.observer
 
-fun main(args: Array<String>) {
+fun main() {
     val subject = WeatherData()
     val displayElement = CurrentConditionToday(subject)
     subject.setMeasurements(temperature = 11f, humidity = 221f, pressure = 700f)

@@ -34,6 +34,6 @@ fun betterEvalWithLogging(e : Expr) : Int =
             else -> throw IllegalArgumentException("Unknown expresion")
         }
 
-fun main(args: Array<String>) {
+fun main() {
     println(betterEvalWithLogging(Sum(Num(3), Sum(Num(4), Num(2)))))
 }

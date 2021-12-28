@@ -3,7 +3,7 @@ package ru.lyubimov.test.exception
 import java.lang.Exception
 import java.lang.NullPointerException
 
-fun main(args: Array<String>) {
+fun main() {
     getTitleTest(NullPointerException("asd sadf"))
 }
 

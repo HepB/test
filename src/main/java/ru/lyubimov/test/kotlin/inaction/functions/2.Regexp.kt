@@ -11,6 +11,6 @@ fun parsePath(path : String) {
     println("Dir: $directory, name: $name, extension: $extension")
 }
 
-fun main(args: Array<String>) {
+fun main() {
     parsePath("/users/alex/b/rotor.txt")
 }

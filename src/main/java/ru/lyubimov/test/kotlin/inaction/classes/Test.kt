@@ -3,7 +3,7 @@ package ru.lyubimov.test.kotlin.inaction.classes
 import ru.lyubimov.test.kotlin.inaction.functions.User
 import ru.lyubimov.test.kotlin.inaction.functions.saveUser
 
-fun main(args: Array<String>) {
+fun main() {
     val button = Button()
     button.click()
     button.setFocus(true)

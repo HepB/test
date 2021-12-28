@@ -14,6 +14,6 @@ fun readNumber(reader : BufferedReader): Int? {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(readNumber(BufferedReader(StringReader("2213"))))
 }

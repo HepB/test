@@ -26,7 +26,7 @@ val averageWindowsDuration = log
         .map(SiteVisit::duration)
         .average()
 
-fun main(args: Array<String>) {
+fun main() {
     println(averageWindowsDuration)
     println(log.averageDurationFor(OS.MAC))
     println(log.averageDurationForH { it.os in setOf(OS.ANDROID, OS.IOS) })

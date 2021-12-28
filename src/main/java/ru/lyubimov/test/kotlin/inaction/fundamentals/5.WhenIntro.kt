@@ -27,7 +27,7 @@ fun mix(c1: Color, c2: Color) = when(setOf(c1, c2)) {
     else -> throw Exception("Грязный цвет")
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(getWarmth(Color.VIOLET))
     println(mix(RED, YELLOW))
 }

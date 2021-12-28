@@ -46,7 +46,18 @@ fun main() {
 
     println(checkFilePath("test/small.png"))
     println(checkFilePath("sd f.png"))*/
-    temp()
+//    temp()
+    val result = sqrt((1 - sqrt(19.0)).pow(2) + (1 - sqrt(19.0)).pow(2) + (1 - sqrt(19.0)).pow(2))
+    println(result)
+    println(11/10)
+    carPrice(kilometers = 100000)
+}
+
+fun carPrice(old: Int = 5, kilometers: Int = 100000, maximumSpeed: Int = 120, automatic: Boolean = false) {
+    var price = 20_000
+    price += -old * 2000 + (maximumSpeed - 120) * 100 - kilometers / 10000 * 200
+    price = if (automatic) price + 1500 else price
+    print(price)
 }
 
 fun fizzbuzz(from: Int, to: Int, transformation: (Int) -> String) {
@@ -150,6 +161,27 @@ fun temp() {
 fun checkFilePath(path: String): String? {
     val regex = Regex(".+[.]$TYPE$")
     return if (path.matches(regex)) null else "Enter correct file path"
+}
+
+fun f(x: Double): Double {
+    return when {
+        x <= 0 -> f1(x)
+        x > 0 && x < 1 -> f2(x)
+        else -> f3(x)
+    }
+}
+
+// implement your functions here
+fun f1(x: Double): Double {
+    return x * x + 1
+}
+
+fun f2(x: Double): Double {
+    return 1 / x * x
+}
+
+fun f3(x: Double): Double {
+    return x * x - 1
 }
 
 data class Distance2D(

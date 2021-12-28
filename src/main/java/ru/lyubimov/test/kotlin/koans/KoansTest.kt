@@ -1,6 +1,6 @@
 package ru.lyubimov.test.kotlin.koans
 
-fun main(args: Array<String>) {
+fun main() {
 
 }
 

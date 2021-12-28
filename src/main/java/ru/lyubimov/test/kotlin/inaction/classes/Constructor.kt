@@ -43,7 +43,7 @@ class User4(val name: String) {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val user4 : User4 = User4("Name")
     user4.address = "Baiburyaki"
 }

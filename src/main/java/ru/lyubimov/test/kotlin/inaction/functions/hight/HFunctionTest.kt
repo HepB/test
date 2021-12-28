@@ -42,7 +42,7 @@ fun <T> Collection<T>.joinToString(
     return result.toString()
 }
 
-fun main(args: Array<String>) {
+fun main() {
     twoAndThree { a, b -> a + b }
     twoAndThree { a, b -> a * b }
     println("af23dfdS2sdf".filter { it in 'a'..'z' })

@@ -1,6 +1,6 @@
 package ru.lyubimov.test.patterns.decorator
 
-fun main(args: Array<String>) {
+fun main() {
     val espresso: Beverage = Espresso()
     println("${espresso.getDescription()} \$${espresso.cost()}")
 

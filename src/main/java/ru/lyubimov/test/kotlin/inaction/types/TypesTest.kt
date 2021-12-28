@@ -22,7 +22,7 @@ class Person(val name : String, val company : Company?) {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     //6.1.3
     val ceo = Employee("Da Boss", null)
     val developer = Employee("Bob Smith", ceo)

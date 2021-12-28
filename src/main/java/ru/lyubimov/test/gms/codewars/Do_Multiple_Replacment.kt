@@ -6,7 +6,7 @@ fun f2(s: String) = s.replaceIndent("""""")
 //fun f2(s: String) = s.replace()
 
 val c = """fun f1(s: String) = s.map { when(it) { '<','{','[' ->it + 2 '>','}',']'->it-2 '('->')'')'->'(' else->it}}.joinToString("")"""
-fun main(args: Array<String>) {
+fun main() {
     println(f("dfs}sdf]("))
     println(f1("dfs}sdf]("))
     println(f2("dfs}sdf](){["))

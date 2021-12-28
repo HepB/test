@@ -22,7 +22,7 @@ fun blackOrWhiteKey(keyPressCount: Int): String = when {
 fun Int.isEven(): Boolean = this % 2 == 0
 fun Int.isOdd(): Boolean = this % 2 > 0
 
-fun main(args: Array<String>) {
+fun main() {
     println(blackOrWhiteKey(92))
     println((176 + 1)/88)
 }

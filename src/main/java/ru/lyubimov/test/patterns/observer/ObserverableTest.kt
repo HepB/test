@@ -62,7 +62,7 @@ class ForecastDisplay(private val observable: Observable) : Observer, DisplayEle
 
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val wd = NewWeatherData()
     val obs = NewCurrentConditionDisplay(wd)
     val anotherObs = ForecastDisplay(wd)

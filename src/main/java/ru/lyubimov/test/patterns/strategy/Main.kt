@@ -5,7 +5,7 @@ import ru.lyubimov.test.patterns.strategy.ducks.MallardDuck
 import ru.lyubimov.test.patterns.strategy.ducks.RedheadDuck
 import ru.lyubimov.test.patterns.strategy.ducks.RubberDuck
 
-fun main(args: Array<String>) {
+fun main() {
     val firstDuck = RedheadDuck()
     val secondDuck = MallardDuck()
     val thirdDuck = RubberDuck()

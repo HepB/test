@@ -2,7 +2,7 @@ package ru.lyubimov.test.gms.codingame
 
 import java.util.*
 
-fun main(args : Array<String>) {
+fun main() {
     val input = Scanner(System.`in`)
     val n = input.nextInt() // the number of temperatures to analyse
     var min = if(n == 0) 0 else 5526

@@ -1,6 +1,6 @@
 package ru.lyubimov.test.kotlin.inaction.fundamentals
 
-fun main(args: Array<String>) {
+fun main() {
     print(max(21, 23))
 }
 //2.1.2 Функции

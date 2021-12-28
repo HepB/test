@@ -20,6 +20,6 @@ fun whichNote(keyPressCount: Int): String =
             }
         }
 
-fun main(args: Array<String>) {
+fun main() {
     println(whichNote(89))
 }

@@ -1,6 +1,6 @@
 package ru.lyubimov.test.kotlin
 
-fun main(args: Array<String>) {
+fun main() {
     println(containsValue("src_type"))
 }
 

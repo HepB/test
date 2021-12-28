@@ -21,7 +21,7 @@ data class Person(
         val phoneNumber: String?
 )
 
-fun main(args: Array<String>) {
+fun main() {
     val contacts = listOf(Person("Dmitry", "Hitry", "123-456"),
             Person("Svetlana", "Milanova", null))
     val contactsListFilters = ContactListFilters()

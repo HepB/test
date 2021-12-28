@@ -1,6 +1,6 @@
 package ru.lyubimov.test.patterns.fabric
 
-fun main(args: Array<String>) {
+fun main() {
     val nyPizzaStore: PizzaStore = NYPizzaStore()
     val chicagoPizzaStore: PizzaStore = ChicagoPizzaStore()
     val californiaStore: PizzaStore = CaliforniaPizzaStore()

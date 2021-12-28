@@ -67,7 +67,7 @@ fun printEntries(map: Map<String, String>) {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val p1 = Point(2, 2)
     var p2 = Point(20, 30)
     println(p1 + p2)
