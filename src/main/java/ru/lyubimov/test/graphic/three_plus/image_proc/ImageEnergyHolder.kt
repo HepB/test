@@ -9,7 +9,7 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class ImageEnergyHolder(image: BufferedImage) {
-    var energyMap: Array<Array<Double>>
+    val energyMap: Array<Array<Double>>
     var maxEnergyOfImage: Double = 0.0
 
     init {
