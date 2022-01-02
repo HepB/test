@@ -1,84 +1,95 @@
 package ru.lyubimov.test.graphic.three_plus.image_proc
 
-class VerticalEnergyGraph(energyMap: Array<Array<Double>>) : EnergyGraph() {
+import kotlin.math.min
 
-    override val graph: List<Vertex>
-    private val createdVertexes = mutableMapOf<Pixel, Vertex>()
+class VerticalEnergyGraph(energyMap: Array<Array<Double>>) {
+
+    private val graph: Array<Array<Double>>
 
     init {
-        val result = mutableListOf<Vertex>()
+        val result = Array(energyMap.size) { i ->
+            Array(energyMap[i].size) { Double.MAX_VALUE }
+        }
 
-        for (j in energyMap[0].indices) {
-            val pixel = Pixel(x = j, y = 0, energy = energyMap[0][j])
-            val adjacentVertexes = getPixelAdjacent(pixel, energyMap)
-            result.add(
-                Vertex(
-                    value = pixel,
-                    outputVertexes = adjacentVertexes
-                )
-            )
+        for (i in energyMap.indices) {
+            for (j in energyMap[i].indices) {
+                result[i][j] = when {
+                    i - 1 >= 0 && result[i].size == 1 -> energyMap[i][j] + result[i - 1][j]
+                    i - 1 >= 0 && j - 1 >= 0 && j + 1 <= result[i].lastIndex -> {
+                        val leftVertex = result[i - 1][j - 1]
+                        val upVertex = result[i - 1][j]
+                        val rightVertex = result[i - 1][j + 1]
+                        val minWeight = min(min(leftVertex, upVertex), min(upVertex, rightVertex))
+                        energyMap[i][j] + minWeight
+                    }
+                    i - 1 >= 0 && j + 1 <= result[i].lastIndex -> {
+                        val upVertex = result[i - 1][j]
+                        val rightVertex = result[i - 1][j + 1]
+                        val minWeight = min(upVertex, rightVertex)
+                        energyMap[i][j] + minWeight
+                    }
+                    i - 1 >= 0 && j - 1 >= 0 -> {
+                        val leftVertex = result[i - 1][j - 1]
+                        val upVertex = result[i - 1][j]
+                        val minWeight = min(leftVertex, upVertex)
+                        energyMap[i][j] + minWeight
+                    }
+                    else -> energyMap[i][j]
+                }
+            }
         }
 
         graph = result
-        createdVertexes.clear()
     }
 
-    private fun getPixelAdjacent(pixel: Pixel, energyMap: Array<Array<Double>>): List<Vertex> {
-        val result = mutableListOf<Vertex>()
-
-        if (pixel.x - 1 >= 0 && pixel.y + 1 <= energyMap.lastIndex) {
-            val adjacentPixel = Pixel(
-                x = pixel.x - 1,
-                y = pixel.y + 1,
-                energy = energyMap[pixel.x - 1][pixel.y + 1]
-            )
-            var createdVertex = createdVertexes[adjacentPixel]
-            if (createdVertex == null) {
-                createdVertex = Vertex(
-                    value = adjacentPixel,
-                    outputVertexes = getPixelAdjacent(adjacentPixel, energyMap)
-                )
-                createdVertexes[adjacentPixel] = createdVertex
-                result.add(createdVertex)
-            }
-            result.add(createdVertex)
-        }
-
-        if (pixel.y + 1 <= energyMap.lastIndex) {
-            val adjacentPixel = Pixel(
-                x = pixel.x,
-                y = pixel.y + 1,
-                energy = energyMap[pixel.x][pixel.y + 1]
-            )
-            var createdVertex = createdVertexes[adjacentPixel]
-            if (createdVertex == null) {
-                createdVertex = Vertex(
-                    value = adjacentPixel,
-                    outputVertexes = getPixelAdjacent(adjacentPixel, energyMap)
-                )
-                createdVertexes[adjacentPixel] = createdVertex
-                result.add(createdVertex)
-            }
-            result.add(createdVertex)
-        }
-
-        if (pixel.x + 1 <= energyMap[0].lastIndex && pixel.y + 1 <= energyMap.lastIndex) {
-            val adjacentPixel = Pixel(
-                x = pixel.x + 1,
-                y = pixel.y + 1,
-                energy = energyMap[pixel.x + 1][pixel.y + 1]
-            )
-            var createdVertex = createdVertexes[adjacentPixel]
-            if (createdVertex == null) {
-                createdVertex = Vertex(
-                    value = adjacentPixel,
-                    outputVertexes = getPixelAdjacent(adjacentPixel, energyMap)
-                )
-                createdVertexes[adjacentPixel] = createdVertex
-                result.add(createdVertex)
-            }
-            result.add(createdVertex)
-        }
+    fun shortestWay(): List<Pixel> {
+        val result = mutableListOf<Pixel>()
+        val bottomLine = graph.last()
+        val min = bottomLine.minOrNull() ?: bottomLine[0]
+        val initialPixel = Pixel(x = bottomLine.indexOf(min), y = graph.lastIndex)
+        nextStep(initialPixel, result)
         return result
+    }
+
+    fun printGraph(){
+        for (row in graph) {
+            for(element in row) {
+                print("$element ")
+            }
+            println()
+        }
+    }
+
+    private fun nextStep(pixel: Pixel, shortestWay: MutableList<Pixel>): MutableList<Pixel> {
+        shortestWay.add(pixel)
+        return when {
+            pixel.y - 1 >= 0 && pixel.x >= 1 && graph[pixel.y - 1].lastIndex >= pixel.x + 1 -> {
+                val leftVertex = graph[pixel.y - 1][pixel.x - 1]
+                val upVertex = graph[pixel.y - 1][pixel.x]
+                val rightVertex = graph[pixel.y - 1][pixel.x + 1]
+                return when(min(min(leftVertex, upVertex), min(upVertex, rightVertex))) {
+                    leftVertex -> nextStep(Pixel( x = pixel.x - 1, y = pixel.y - 1 ), shortestWay)
+                    upVertex -> nextStep(Pixel( x = pixel.x, y = pixel.y - 1 ), shortestWay)
+                    else -> nextStep(Pixel( x = pixel.x + 1, y = pixel.y - 1 ), shortestWay)
+                }
+            }
+            pixel.y - 1 >= 0 && pixel.x >= 1 -> {
+                val leftVertex = graph[pixel.y - 1][pixel.x - 1]
+                val upVertex = graph[pixel.y - 1][pixel.x]
+                return when(min(leftVertex, upVertex)) {
+                    leftVertex -> nextStep(Pixel( x = pixel.x - 1, y = pixel.y - 1 ), shortestWay)
+                    else -> nextStep(Pixel( x = pixel.x, y = pixel.y - 1 ), shortestWay)
+                }
+            }
+            pixel.y - 1 >= 0 && graph[pixel.y - 1].lastIndex >= pixel.x + 1 -> {
+                val upVertex = graph[pixel.y - 1][pixel.x]
+                val rightVertex = graph[pixel.y - 1][pixel.x + 1]
+                return when(min(upVertex, rightVertex)) {
+                    upVertex -> nextStep(Pixel( x = pixel.x, y = pixel.y - 1 ), shortestWay)
+                    else -> nextStep(Pixel( x = pixel.x + 1, y = pixel.y - 1 ), shortestWay)
+                }
+            }
+            else -> shortestWay
+        }
     }
 }
