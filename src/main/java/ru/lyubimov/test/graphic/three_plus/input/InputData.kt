@@ -8,7 +8,9 @@ import javax.imageio.ImageIO
 
 class InputData(
     val inputFilePath: String,
-    val outputFilePath: String
+    val outputFilePath: String,
+    val widthForRemove: Int,
+    val heightForRemove: Int
 ) {
 
     fun getImage(): BufferedImage {

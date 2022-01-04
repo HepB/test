@@ -51,6 +51,7 @@ fun main() {
     println(result)
     println(11/10)
     carPrice(kilometers = 100000)
+    test()
 }
 
 fun carPrice(old: Int = 5, kilometers: Int = 100000, maximumSpeed: Int = 120, automatic: Boolean = false) {
@@ -182,6 +183,12 @@ fun f2(x: Double): Double {
 
 fun f3(x: Double): Double {
     return x * x - 1
+}
+
+fun test() {
+    val yourApples: UInt = 5u
+    val friendsApples: UInt = 7u
+    println(yourApples + friendsApples)
 }
 
 data class Distance2D(

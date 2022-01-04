@@ -51,15 +51,6 @@ class VerticalEnergyGraph(energyMap: Array<Array<Double>>) {
         return result
     }
 
-    fun printGraph(){
-        for (row in graph) {
-            for(element in row) {
-                print("$element ")
-            }
-            println()
-        }
-    }
-
     private fun nextStep(pixel: Pixel, shortestWay: MutableList<Pixel>): MutableList<Pixel> {
         shortestWay.add(pixel)
         return when {
