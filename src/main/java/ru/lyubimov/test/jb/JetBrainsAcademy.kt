@@ -1,4 +1,4 @@
-package ru.lyubimov.test.temp
+package ru.lyubimov.test.jb
 
 import java.util.*
 import kotlin.math.pow
