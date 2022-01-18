@@ -1,6 +1,5 @@
 package ru.lyubimov.test.jb.search_engine.input
 
-import search.input.InputData
 import java.lang.Exception
 import java.lang.IndexOutOfBoundsException
 
