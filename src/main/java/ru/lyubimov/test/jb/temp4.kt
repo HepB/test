@@ -1,9 +1,14 @@
-package ru.lyubimov.test.temp
+package ru.lyubimov.test.jb
 
 fun main() {
-    var number1 = 38
-    var number2 = 54
-    number1 = number1 shl 2
-    number2 = number2 shr 1
-    var result = number2 xor number1
+    // write your code here
+    val (word, n) = readLine()!!.split(" ")
+    val shift = n.toInt() % word.length
+    for (i in 0..word.lastIndex) {
+        if (i in 0 .. word.lastIndex - shift) {
+            print(word[i + shift])
+        } else {
+            print(word[i - (word.length - shift)])
+        }
+    }
 }

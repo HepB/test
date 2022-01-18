@@ -1,4 +1,4 @@
-package ru.lyubimov.test.temp
+package ru.lyubimov.test.jb
 
 fun printXor(condition1: Int, condition2: Int) {
     println(condition1 xor condition2)

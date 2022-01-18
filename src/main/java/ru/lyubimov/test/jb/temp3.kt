@@ -1,4 +1,4 @@
-package ru.lyubimov.test.temp
+package ru.lyubimov.test.jb
 
 fun isPrime(number: Int): Int {
     for (i in 2..(number / 2)) {
