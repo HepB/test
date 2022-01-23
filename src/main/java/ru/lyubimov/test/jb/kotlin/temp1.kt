@@ -1,23 +1,25 @@
 package ru.lyubimov.test.jb.kotlin
 
-fun printXor(condition1: Int, condition2: Int) {
-    println(condition1 xor condition2)
+fun modifyString(initialString: String): String{
+    var modifiedString = initialString
+
+    modifiedString = modifiedString.removeRange(2, 10) // 1
+    if (modifiedString.contains(" ")) // 2
+        modifiedString += "ABC"
+    modifiedString = modifiedString.substringAfter(" ") + modifiedString.substringBefore(" ") // 3
+    if (modifiedString.contains("a")) // 4
+        modifiedString.plus("1248")
+    modifiedString = modifiedString.replaceFirst(" ", "$") // 5
+    if (modifiedString.length < 15) // 6
+        modifiedString = modifiedString.reversed()
+    modifiedString += "18B20" // 7
+    modifiedString = modifiedString.substringAfter("1") + modifiedString.substringBefore("5") // 8
+    modifiedString.dropLast(4) // 9
+
+    return  modifiedString
 }
 
 fun main() {
-    val condition1 = 175892
-    val condition2 = 98795
-
-    val q: Int = 'q'.code
-
-
-    if (condition1 and condition2 > 35925)
-        printXor(condition1 - condition2, condition1 or condition2) // 1
-    else {
-        val a = condition1 xor condition2
-        val b = condition1 and condition2
-        printXor(condition1 xor condition2, condition1 and condition2) // 2\
-        val c = 0
-    }
-
+    val password = modifyString("my password is 12345")
+    println(password)
 }
