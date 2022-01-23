@@ -1,16 +1,12 @@
 package ru.lyubimov.test.jb.kotlin
 
+import kotlin.math.sqrt
+
 fun main() {
-    var fibonacciPrevious = 1
-    var fibonacciCurrent = 1
-    var fibonacciSum = fibonacciPrevious + fibonacciCurrent
-
-    while(fibonacciCurrent < 1001) {
-        val tmp = fibonacciPrevious + fibonacciCurrent
-        fibonacciPrevious = fibonacciCurrent
-        fibonacciCurrent = tmp
-        fibonacciSum += fibonacciCurrent
+    val numbers = List(98) { i -> i + 1}
+    val step = sqrt(numbers.size.toDouble()).toInt()
+    println(step)
+    for (i in numbers.indices step step) {
+        println("$i to ${numbers[i]}")
     }
-
-    val collection = listOf(2)
 }
