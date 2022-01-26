@@ -10,3 +10,5 @@ fun FilePath.getFile(): File {
     if (!file.exists()) throw Exception("Input file not exist")
     return file
 }
+
+fun File.linesWithoutPhone(): MutableList<String> = this.readLines().map { it.substringAfter(" ") }.toMutableList()
