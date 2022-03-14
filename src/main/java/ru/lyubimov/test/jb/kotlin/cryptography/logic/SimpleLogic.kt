@@ -5,20 +5,25 @@ import java.awt.Color
 import java.awt.image.BufferedImage
 import kotlin.system.exitProcess
 
-class SimpleLogic : Logic {
+class SimpleLogic(private val cryptoLogic: CryptoLogic) : Logic {
 
-    override fun hideMessageInImage(inputFileName: String, outputFileName: String, message: String): Boolean {
+    override fun hideMessageInImage(
+        inputFileName: String,
+        outputFileName: String,
+        message: String,
+        password: String
+    ): Boolean {
         val image = inputFileName.toBufferedImage()
-        val isSuccess = hide(image, message)
+        val isSuccess = hide(image, message, password)
         if (isSuccess) {
             image.saveImage(outputFileName)
         }
         return isSuccess
     }
 
-    override fun getMessageFromImage(inputFileName: String): String {
+    override fun getMessageFromImage(inputFileName: String, password: String): String {
         val image = inputFileName.toBufferedImage()
-        return getMessage(image)
+        return getMessage(image, password)
     }
 
     override fun exit() {
@@ -26,20 +31,19 @@ class SimpleLogic : Logic {
         exitProcess(0)
     }
 
-    private fun hide(image: BufferedImage, message: String): Boolean {
+    private fun hide(image: BufferedImage, message: String, password: String): Boolean {
         val maxBytes = image.width * image.height
-        val messageBytes = message.encodeToByteArray().toMessageBytesWithEndMark()
-        val bitsQueue = messageBytes.toBitQueue()
-        if (maxBytes < bitsQueue.size) return false
+        val cryptBitsQueue = cryptoLogic.encrypt(message, password)
+        if (maxBytes < cryptBitsQueue.size) return false
 
         mainLoop@ for (i in image.yIndexes()) {
             for (j in image.xIndexes()) {
-                if (bitsQueue.isEmpty()) break@mainLoop
+                if (cryptBitsQueue.isEmpty()) break@mainLoop
                 val color = Color(image.getRGB(j, i))
                 val red = color.red
                 val green = color.green
-                val blue = if (bitsQueue.poll() == 0) {
-                   color.blue and 0b11111110
+                val blue = if (cryptBitsQueue.poll() == 0) {
+                    color.blue and 0b11111110
                 } else {
                     color.blue or 1
                 }
@@ -50,24 +54,24 @@ class SimpleLogic : Logic {
         return true
     }
 
-    private fun getMessage(image: BufferedImage): String {
+    private fun getMessage(image: BufferedImage, password: String): String {
         var rawByte = ""
-        var rawByteList = mutableListOf<String>()
+        var cryptBytesList = mutableListOf<String>()
         loop@ for (i in image.yIndexes()) {
             for (j in image.xIndexes()) {
                 val color = Color(image.getRGB(j, i))
                 val messageBit = color.blue and 1
                 rawByte += messageBit
                 if (rawByte.length == 8) {
-                    rawByteList.add(rawByte)
+                    cryptBytesList.add(rawByte)
                     rawByte = ""
-                    if (rawByteList.hasEndOfMessage()) {
-                        rawByteList = rawByteList.dropLast(3).toMutableList()
+                    if (cryptBytesList.hasEndOfMessage()) {
+                        cryptBytesList = cryptBytesList.dropLast(3).toMutableList()
                         break@loop
                     }
                 }
             }
         }
-        return rawByteList.decodeMessage()
+        return cryptoLogic.decrypt(cryptBytesList, password)
     }
 }

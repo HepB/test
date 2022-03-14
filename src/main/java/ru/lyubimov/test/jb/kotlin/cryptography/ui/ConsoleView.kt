@@ -23,13 +23,11 @@ class ConsoleView(private val logic: Logic) {
     }
 
     private fun hide() {
-        println("Input image file:")
-        val inputFileName = readLine() ?: ""
-        println("Output image file:")
-        val outputFileName = readLine() ?: ""
-        println("Message to hide:")
-        val message = readLine() ?: ""
-        val result = if (logic.hideMessageInImage(inputFileName, outputFileName, message)) {
+        val inputFileName = readInputFileName()
+        val outputFileName = readOutputFileName()
+        val message = readMessage()
+        val password = readPassword()
+        val result = if (logic.hideMessageInImage(inputFileName, outputFileName, message, password)) {
             "Message saved in $outputFileName image."
         } else {
             "The input image is not large enough to hold this message."
@@ -38,9 +36,29 @@ class ConsoleView(private val logic: Logic) {
     }
 
     private fun getMessage() {
-        println("Input image file:")
-        val inputFileName = readLine() ?: ""
-        val message = logic.getMessageFromImage(inputFileName)
+        val inputFileName = readInputFileName()
+        val password = readPassword()
+        val message = logic.getMessageFromImage(inputFileName, password)
         println("Message:\n$message")
+    }
+
+    private fun readInputFileName(): String {
+        println("Input image file:")
+        return readLine() ?: ""
+    }
+
+    private fun readOutputFileName(): String {
+        println("Output image file:")
+        return readLine() ?: ""
+    }
+
+    private fun readMessage(): String {
+        println("Message to hide:")
+        return readLine() ?: ""
+    }
+
+    private fun readPassword(): String {
+        println("Password:")
+        return readLine() ?: ""
     }
 }
