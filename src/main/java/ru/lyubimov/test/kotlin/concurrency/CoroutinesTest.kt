@@ -1,14 +1,22 @@
 package ru.lyubimov.test.kotlin.concurrency
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 fun main() = runBlocking {
-    for (i in 200..1000 step 200) {
-        launch {
-            delay(1000L - i)
-            print(i)
-        }
+    doWorld()
+    println("Done")
+
+}
+
+// Concurrently executes both sections
+suspend fun doWorld() = coroutineScope { // this: CoroutineScope
+    launch {
+        delay(2000L)
+        println("World 2")
     }
+    launch {
+        delay(1000L)
+        println("World 1")
+    }
+    println("Hello")
 }
