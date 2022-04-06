@@ -1,5 +1,7 @@
 package ru.lyubimov.test.jb.java;
 
+import java.util.Random;
+
 public class Temp1 {
     float f = (float) (20d + 20.02f); // 1
     long n = 10 + 2L;       // 2
@@ -13,5 +15,9 @@ public class Temp1 {
         System.out.println(ch);
         Long val = Long.parseLong("4321");
         Long val1 = Long.valueOf("4321");
+        Random random = new Random();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(random.nextInt(9));
+        }
     }
 }

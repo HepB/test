@@ -1,12 +1,19 @@
 package ru.lyubimov.test.jb.java;
 
+import java.util.Arrays;
+
 public class ArrayTemp {
-    Temp1[] temp1s = new Temp1[2];
-    char[] array = new char[-1];
-    char[] array1 = { 'a', 'b', 'c', 'd' };
-    char[] array3 = new char[0];
-    char[] array4 = new char[1];
-    String[] words = { "first", "second", "third" };
-    char[] letters = new char[] { 'A', 'B', 'C' };
+
+    public static void main(String[] args) {
+        int[] a = {9, 8, 3, 1, 5, 4};
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0 ) {
+                a[i] += 1;
+            } else {
+                a[i] -= 1;
+            }
+        }
+        System.out.println(Arrays.toString(Arrays.stream(a).toArray()));
+    }
 }
 
