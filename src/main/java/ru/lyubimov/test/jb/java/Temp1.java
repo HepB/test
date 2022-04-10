@@ -13,6 +13,9 @@ public class Temp1 {
         ch++;
         ch += 'b';
         System.out.println(ch);
+
+        Pet pet = new Pet();
+
         Long val = Long.parseLong("4321");
         Long val1 = Long.valueOf("4321");
         Random random = new Random();

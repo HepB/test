@@ -1,12 +1,18 @@
 package ru.lyubimov.test.jb.kotlin
 
-import kotlin.concurrent.thread
+class QuizBox<T>(_item: T) {
+    var isChanged = false
+    var item: T = _item
 
-fun main() {
-    thread(block = {
-        Thread.sleep(1500)
-        println("Hello from the custom thread!")
-    })
-    print(2 / 0)
-    println("Hello from the main thread!")
+        // implement methods
+        get() {
+            println("You asked for the item")
+            return field
+        }
+
+        set(value) {
+            field = value
+            isChanged = true
+            println("You changed the item")
+        }
 }
