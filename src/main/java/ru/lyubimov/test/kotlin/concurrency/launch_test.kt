@@ -1,9 +1,7 @@
 package ru.lyubimov.test.kotlin.concurrency
 
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 fun main() {
     println("Starting")
@@ -15,6 +13,6 @@ fun main() {
         doLotsOfWorkWithFile("optional_file")  // also waits
         println("Optional file processed")
     }
-
-    println("Finishing")
+    val s: String? = null
+    println("Finishing $s")
 }                                              // exits immediately, not waiting for background jobs
